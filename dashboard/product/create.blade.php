@@ -1,0 +1,38 @@
+@extends('dashboard.master')
+@section('main')
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h2>Add Product Item</h2>
+
+    <form action="{{ route('inventories.store') }}" method="POST" class="mt-4">
+        @csrf
+        <div class="mb-3">
+            <label class="form-label">Product Name</label>
+            <input type="text" name="product_name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quantity</label>
+            <input type="number" name="quantity" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Reorder Level</label>
+            <input type="number" name="reorder_level" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cost Price (Rs.)</label>
+            <input type="number" step="0.01" name="cost_price" class="form-control" required>
+        </div>
+
+        <button class="btn btn-success">Save</button>
+        <a href="{{ route('product.index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+@endsection
